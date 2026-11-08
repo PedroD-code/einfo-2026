@@ -26,13 +26,13 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
           
       - name: Converter owner para minúsculo
-        run: echo "REPO_OWNER=${GITHUB_REPOSITORY_OWNER,,}" >> $GITHUB_ENV
+        run: echo "REPO_OWNER=${pedrod-code,,}" >> $GITHUB_ENV
 
       - name: Build da imagem
         run: |
           docker build \
-            -t ghcr.io/${{ env.REPO_OWNER }}/projeto-einfo:v1 .
+            -t ghcr.io/${{ env.pedrod-code }}/projeto-einfo:v1 .
 
       - name: Push da imagem
         run: |
-          docker push ghcr.io/${{ env.REPO_OWNER }}/projeto-einfo:v1
+          docker push ghcr.io/${{ env.pedrod-code }}/projeto-einfo:v1
